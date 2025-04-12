@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2487.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.3px Courier; -webkit-text-stroke: #000000}
+    span.s1 {font-kerning: none}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
+<p class="p1"><span class="s1">&lt;html&gt;</span></p>
+<p class="p1"><span class="s1">&lt;head&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;title&gt;Workout Calendar&lt;/title&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css" rel="stylesheet"/&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;style&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>#calendar { max-width: 100%; margin: 10px; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.fc-daygrid-day-number { color: #333; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>.fc-event { background-color: #FFD700; border-color: #DAA520; } /* Gold for workouts */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
+<p class="p1"><span class="s1">&lt;body&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div id="calendar"&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.js"&gt;&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.addEventListener('DOMContentLoaded', function() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>var calendarEl = document.getElementById('calendar');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>var calendar = new FullCalendar.Calendar(calendarEl, {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>initialView: 'dayGridMonth',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>initialDate: '2025-04-01',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>events: function(fetchInfo, successCallback) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>fetch('YOUR_ADALO_API_URL/workouts') // Replace with your API</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>.then(response =&gt; response.json())</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>.then(data =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>var events = data.map(item =&gt; ({</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>title: item.Name,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>start: item.Date,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>end: item.Date</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>}));</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">              </span>successCallback(events);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>eventClick: function(info) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>window.location.href = '/day-workouts?date=' + info.event.startStr;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>calendar.render();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+</body>
+</html>
