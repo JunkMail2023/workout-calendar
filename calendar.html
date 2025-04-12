@@ -4,9 +4,15 @@
   <title>Workout Calendar</title>
   <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css" rel="stylesheet"/>
   <style>
-    #calendar { max-width: 100%; margin: 10px; }
+    #calendar { 
+      max-width: 100%; 
+      margin: 10px; 
+      height: 650px; /* Fixed height for ~5 weeks */
+      overflow: hidden; /* No scrollbar */
+    }
     .fc-daygrid-day-number { color: #333; }
     .fc-event { background-color: #FFD700; border-color: #DAA520; }
+    .fc-scroller { overflow: hidden !important; } /* Force no scroll */
   </style>
 </head>
 <body>
