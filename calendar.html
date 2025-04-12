@@ -12,14 +12,13 @@
     }
     .fc-daygrid-day-number { color: #333; }
     .fc-event { 
-      background-color: #90EE90; /* Light green rectangle */
-      border: 1px solid #32CD32; /* Darker green border */
-      color: #000; /* Black text for name */
-      font-size: 12px; /* Readable text */
-      padding: 2px 4px; /* Space around text */
-      border-radius: 4px; /* Soft corners */
-      text-align: center; /* Center text */
-      margin: 2px; /* Fit in date box */
+      background-color: #32CD32; /* Green dot */
+      border: none; /* No border */
+      width: 8px; /* Dot size */
+      height: 8px; 
+      border-radius: 50%; /* Circular dot */
+      margin: 2px auto; /* Center in date box */
+      font-size: 0; /* Hide workout name */
     }
     .fc-scroller { overflow: hidden !important; }
   </style>
@@ -57,5 +56,5 @@
       calendar.render();
     });
   </script>
-</head>
+</body>
 </html>
