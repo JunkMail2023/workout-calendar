@@ -12,13 +12,13 @@
     }
     .fc-daygrid-day-number { color: #333; }
     .fc-event { 
-      background-color: #32CD32; /* Green dot */
-      border: none; /* No border */
-      width: 8px; /* Dot size */
+      background-color: #32CD32; 
+      border: none; 
+      width: 8px; 
       height: 8px; 
-      border-radius: 50%; /* Circular dot */
-      margin: 2px auto; /* Center in date box */
-      font-size: 0; /* Hide workout name */
+      border-radius: 50%; 
+      margin: 2px auto; 
+      font-size: 0; 
     }
     .fc-scroller { overflow: hidden !important; }
   </style>
@@ -50,7 +50,7 @@
             .catch(error => console.error('Airtable error:', error));
         },
         eventClick: function(info) {
-          window.location.href = '/day-workouts?date=' + info.event.startStr;
+          window.location.href = 'https://app.adalo.com/a259d664-ba71-4d09-a51d-63847c163b87/screens/day-workouts?date=' + info.event.startStr;
         }
       });
       calendar.render();
